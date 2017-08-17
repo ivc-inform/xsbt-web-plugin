@@ -7,15 +7,17 @@ sbtPlugin     := true
 
 scalacOptions ++= Seq("-feature", "-deprecation")
 
-crossSbtVersions := Seq("0.13.6", "1.0.0")
+//crossSbtVersions := Seq("0.13.6", "1.0.0")
+
+scalaVersion := "2.12.3"
 
 // bintray-sbt
-publishMavenStyle := false
+publishMavenStyle := true
 
 licenses          += ("BSD New", url("http://opensource.org/licenses/BSD-3-Clause"))
 
 // scripted-plugin
-ScriptedPlugin.scriptedSettings
+ScriptedPlugin.projectSettings
 
 scriptedBufferLog  := false
 
