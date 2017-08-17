@@ -1,3 +1,6 @@
+import sbt.NothingFilter
+import sbt.internal.io.Source
+
 // general
 organization  := "com.earldouglas"
 
@@ -23,7 +26,9 @@ scriptedBufferLog  := false
 
 scriptedLaunchOpts += { "-Dplugin.version=" + version.value }
 
-watchSources       ++= { (sourceDirectory.value ** "*").get }
+def fileSeq2SourceSec(files: Seq[File]): Seq[Source] = files.map(file ⇒ new Source(file, NothingFilter, NothingFilter))
+
+watchSources       ++= fileSeq2SourceSec((sourceDirectory.value ** "*").get)
 
 libraryDependencies += "com.amazonaws" % "aws-java-sdk-elasticbeanstalk" % "1.11.105"
 
