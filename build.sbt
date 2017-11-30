@@ -12,7 +12,7 @@ scalacOptions ++= Seq("-feature", "-deprecation")
 
 //crossSbtVersions := Seq("0.13.6", "1.0.0")
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.4"
 
 // bintray-sbt
 publishMavenStyle := true
